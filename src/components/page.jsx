@@ -76,11 +76,12 @@ import {
   SignedOut,
   UserButton,
 } from '@clerk/nextjs'
-
+import ClerkAuth from "./ClerkAuth";
 
 const Landing = () => {
   return (
-    <div className="min-h-screen w-screen flex flex-col items-center  px-4 py-10 bg-[linear-gradient(171deg,_#180E1F_37.26%,_#4B3E56_95.51%)]">
+    <div className="min-h-screen w-screen flex flex-col items-center px-4 py-10 bg-[linear-gradient(171deg,_#180E1F_37.26%,_#4B3E56_95.51%)] relative">
+      <ClerkAuth />
       
       {/* Logo with glow */}
       <div className="relative w-[180px] h-[180px] md:w-[280px] md:h-[280px] mb-6 mt-[50px]">

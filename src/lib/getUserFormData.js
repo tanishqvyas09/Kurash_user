@@ -8,16 +8,22 @@ export async function getUserFormData() {
 
   console.log("User ID:", userId); // Will now log correctly on the server
 
+  if (!userId) {
+    return { data: null, error: { message: "User not authenticated" } };
+  }
+
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
   );
 
+  // Use maybeSingle instead of single - returns null for data when no rows found 
+  // instead of throwing an error
   const { data, error } = await supabase
     .from("players")
     .select("*")
     .eq("user_id", userId)
-    .single();
+    .maybeSingle();
 
   return { data, error };
 }
