@@ -20,12 +20,18 @@ const bricolageGrotesque = Bricolage_Grotesque({
 export const metadata = {
   title: "Kurash",
   description: "Created By DHS-JCT",
+   icons: {
+    icon: "/favicon.ico", 
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
     <html lang="en">
+    <head>
+        <link rel="icon" href="/favicon.ico" />
+    </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${bricolageGrotesque.variable} antialiased`}
       >
